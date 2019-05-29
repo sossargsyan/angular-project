@@ -8,7 +8,7 @@ import { UserDetailComponent } from './components/user-list/user-detail/user-det
 import { TopToolbarComponent } from './components/top-toolbar/top-toolbar.component';
 import { LeftSidebarComponent } from './components/left-sidebar/left-sidebar.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule,MatSidenavModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,8 @@ import {MatButtonModule, MatCheckboxModule} from '@angular/material';
     BrowserModule,
     BrowserAnimationsModule,
     MatButtonModule, 
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatSidenavModule
   ],
   exports: [
     MatButtonModule, 
