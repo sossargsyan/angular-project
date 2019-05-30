@@ -11,7 +11,6 @@ import { LeftSidebarComponent } from './components/left-sidebar/left-sidebar.com
 
 import { LeftMenuComponent } from './components/left-sidebar/left-menu/left-menu.component';
 
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import {
