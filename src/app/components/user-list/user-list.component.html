@@ -1,4 +1,8 @@
-<app-user-item
-  *ngFor="let user of users"
-  [user]="user"></app-user-item>
-  <button mat-mini-fab color="primary" class="add-user" (click)="openDialog()">+</button>
+<mat-card>
+  <mat-list>
+    <app-user-item
+      *ngFor="let user of users"
+      [user]="user"></app-user-item>
+  </mat-list>
+</mat-card>
+<button mat-mini-fab color="primary" class="add-user" (click)="openDialog()">+</button>
