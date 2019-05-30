@@ -8,11 +8,15 @@ import { UserDetailComponent } from './components/user-list/user-detail/user-det
 import { TopToolbarComponent } from './components/top-toolbar/top-toolbar.component';
 import { LeftSidebarComponent } from './components/left-sidebar/left-sidebar.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import {
   MatButtonModule,
   MatCheckboxModule,
   MatSidenavModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatCardModule,
+  MatListModule,
+  MatIconModule
 } from '@angular/material';
 
 @NgModule({
@@ -22,7 +26,7 @@ import {
     UserItemComponent,
     UserDetailComponent,
     TopToolbarComponent,
-    LeftSidebarComponent
+    LeftSidebarComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +34,11 @@ import {
     MatButtonModule, 
     MatCheckboxModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatCardModule,
+    MatListModule,
+    FlexLayoutModule,
+    MatIconModule
   ],
   exports: [
     MatButtonModule, 

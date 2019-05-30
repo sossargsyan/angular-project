@@ -1,1 +1,14 @@
-<button>{{ user.name }}</button>
+<mat-list-item>
+    <div 
+        fxLayout="row" 
+        fxLayoutAlign="space-between center"
+        style="width:100%"
+        class="user-item-container">
+        <div>{{ user.name }}</div>
+        <div class="delete-button-container">
+            <button mat-icon-button>
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>  
+    </div>
+</mat-list-item>
