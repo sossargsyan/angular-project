@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { UserListComponent } from './components/user-list/user-list.component';
@@ -12,8 +13,11 @@ import {
   MatButtonModule,
   MatCheckboxModule,
   MatSidenavModule,
-  MatToolbarModule
+  MatToolbarModule,
+  MatInputModule,
+  MatDialogModule
 } from '@angular/material';
+import { AddUserComponent } from './components/user-list/add-user/add-user.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +26,8 @@ import {
     UserItemComponent,
     UserDetailComponent,
     TopToolbarComponent,
-    LeftSidebarComponent
+    LeftSidebarComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,
@@ -30,11 +35,17 @@ import {
     MatButtonModule, 
     MatCheckboxModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatInputModule,
+    MatDialogModule,
+    FormsModule
   ],
   exports: [
     MatButtonModule, 
     MatCheckboxModule
+  ],
+  entryComponents: [
+    AddUserComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
