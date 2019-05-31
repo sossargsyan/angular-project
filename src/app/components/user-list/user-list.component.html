@@ -1,7 +1,8 @@
 <mat-card>
-  <mat-list>    
+  <mat-list>
     <app-user-item
       *ngFor="let user of users"
       [user]="user"></app-user-item>
   </mat-list>
 </mat-card>
+<button mat-mini-fab color="primary" class="add-user" (click)="openDialog()">+</button>

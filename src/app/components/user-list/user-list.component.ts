@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+
 import { User } from 'src/app/models/user.model';
+import { AddUserComponent } from './add-user/add-user.component';
 
 @Component({
   selector: 'app-user-list',
@@ -21,9 +24,20 @@ export class UserListComponent implements OnInit {
     },
   ];
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit() {
+  }
+
+  openDialog():void {
+    const dialogRef = this.dialog.open(AddUserComponent, {
+      width: '250px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.users.push(result);
+    });
   }
 
 }

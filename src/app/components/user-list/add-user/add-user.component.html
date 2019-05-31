@@ -1,0 +1,17 @@
+<div class="add-user-list">
+        <div class="head-add-user">
+          <p>Add User</p>
+        </div><br>
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Name" [(ngModel)]="name" name="name">
+            </mat-form-field><br>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Surname" [(ngModel)]="surname" name="surname">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <input matInput placeholder="Email" [(ngModel)]="email" name="email">
+            </mat-form-field>
+        </form>
+        <button mat-raised-button color="primary" (click)="addUser()">Add User</button>
+    </div>
