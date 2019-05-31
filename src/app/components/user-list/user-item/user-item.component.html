@@ -2,9 +2,15 @@
     <div 
         fxLayout="row" 
         fxLayoutAlign="space-between center"
-        style="width:100%"
+        fxFlex="100"
         class="user-item-container">
-        <div>{{ user.name }}</div>
+        <div 
+            fxLayout="row"
+            fxLayoutAlign="space-between center">
+            <div fxFlex="150px">{{ user.name }}</div>
+            <div fxFlex="250px">{{ user.surname }}</div>
+            <div fxFlex="350px">{{ user.email }}</div>
+        </div>        
         <div class="delete-button-container">
             <button mat-icon-button>
                 <mat-icon>delete</mat-icon>
