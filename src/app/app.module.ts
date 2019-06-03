@@ -25,6 +25,7 @@ import {
   MatIconModule
 } from '@angular/material';
 import { AddUserComponent } from './components/user-list/add-user/add-user.component';
+import { DeleteUserComponent } from './components/user-list/delete-user/delete-user.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AddUserComponent } from './components/user-list/add-user/add-user.compo
     TopToolbarComponent,
     LeftSidebarComponent,
     AddUserComponent,
-    LeftMenuComponent
+    LeftMenuComponent,
+    DeleteUserComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +61,8 @@ import { AddUserComponent } from './components/user-list/add-user/add-user.compo
     MatCheckboxModule
   ],
   entryComponents: [
-    AddUserComponent
+    AddUserComponent,
+    DeleteUserComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

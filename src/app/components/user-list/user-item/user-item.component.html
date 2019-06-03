@@ -6,7 +6,7 @@
         class="user-item-container">
         <div>{{ user.name }}</div>
         <div class="delete-button-container">
-            <button mat-icon-button>
+            <button mat-icon-button (click)="openDeleteDialog(user)">
                 <mat-icon>delete</mat-icon>
             </button>
         </div>  

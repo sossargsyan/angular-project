@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import { User } from 'src/app/models/user.model';
@@ -11,7 +11,7 @@ import { AddUserComponent } from './add-user/add-user.component';
 })
 export class UserListComponent implements OnInit {
   
-  users: User[] = [
+  @Input() users: User[] = [
     {
       name: 'Aram', 
       surname: 'Aramyan', 
