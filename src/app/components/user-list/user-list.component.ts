@@ -41,7 +41,6 @@ export class UserListComponent implements OnInit {
   }
 
   deleteUser(UserId: number): void {
-    console.log('WHAT?');
     this.users.splice(UserId, 1);
   }
 

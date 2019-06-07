@@ -1,10 +1,14 @@
 <mat-card>
   <mat-list>
-    <app-user-item
-      *ngFor="let user of users; let i = index"
-      [index] = "i"
-      (DeleteUser)="deleteUser($event)"
-      [user]="user"></app-user-item>
+    <mat-list-item
+      *ngFor="let user of users; let i = index; let l = last">
+      <app-user-item
+        [index] = "i"
+        (DeleteUser)="deleteUser($event)"
+        [user]="user"
+        fxFlex="100"></app-user-item>
+        <mat-divider *ngIf="!l"></mat-divider>
+    </mat-list-item>    
   </mat-list>
 </mat-card>
 <button mat-mini-fab color="primary" class="add-user" (click)="openDialog()">+</button>
