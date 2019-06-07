@@ -1,7 +1,9 @@
 <mat-card>
   <mat-list>
     <app-user-item
-      *ngFor="let user of users"
+      *ngFor="let user of users; let i = index"
+      [index] = "i"
+      (DeleteUser)="deleteUser($event)"
       [user]="user"></app-user-item>
   </mat-list>
 </mat-card>

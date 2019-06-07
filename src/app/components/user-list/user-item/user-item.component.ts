@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteUserComponent } from '../delete-user/delete-user.component';
@@ -9,18 +9,26 @@ import { DeleteUserComponent } from '../delete-user/delete-user.component';
   styleUrls: ['./user-item.component.scss']
 })
 export class UserItemComponent implements OnInit {
+  @Output() DeleteUser = new EventEmitter<number>();
+
   @Input() user: User;
+  @Input() index: number;
   constructor(public dialog: MatDialog) { }
-  
+
   ngOnInit() {
   }
 
-  openDeleteDialog(user_item): void {
+  openDeleteDialog(index: number): void {
     const dialogRef = this.dialog.open(DeleteUserComponent, {
       width: '250px',
-      data: user_item,
+      data: index,
     });
 
+    dialogRef.componentInstance.onDeleteUser.subscribe(
+      (UserId: number) => {
+        this.DeleteUser.emit(UserId);
+      }
+    );
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');

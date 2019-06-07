@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject, EventEmitter } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 import { User } from 'src/app/models/user.model';
@@ -11,19 +11,20 @@ import { User } from 'src/app/models/user.model';
   styleUrls: ['./delete-user.component.scss']
 })
 export class DeleteUserComponent implements OnInit {
+  onDeleteUser = new EventEmitter<number>();
 
   constructor(
     public dialogRef: MatDialogRef<DeleteUserComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: User) {}
+    @Inject(MAT_DIALOG_DATA) public index: number) {}
 
   ngOnInit() {
   }
 
-  deleteUser() {
-    console.log(this.data);
-
+  deleteUser(): void {
+    this.onDeleteUser.emit(this.index);
+    this.dialogRef.close();
   }
-  
+
   onNoClick(): void {
     this.dialogRef.close();
   }

@@ -1,20 +1,20 @@
 <mat-list-item>
-    <div 
-        fxLayout="row" 
+    <div
+        fxLayout="row"
         fxLayoutAlign="space-between center"
         fxFlex="100"
         class="user-item-container">
-        <div 
+        <div
             fxLayout="row"
             fxLayoutAlign="space-between center">
             <div fxFlex="150px">{{ user.name }}</div>
             <div fxFlex="250px">{{ user.surname }}</div>
             <div fxFlex="350px">{{ user.email }}</div>
-        </div>        
+        </div>
         <div class="delete-button-container">
-            <button mat-icon-button (click)="openDeleteDialog(user)">
+            <button mat-icon-button (click)="openDeleteDialog(index)">
                 <mat-icon>delete</mat-icon>
             </button>
-        </div>  
+        </div>
     </div>
 </mat-list-item>

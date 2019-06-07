@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import { User } from 'src/app/models/user.model';
@@ -10,26 +10,26 @@ import { AddUserComponent } from './add-user/add-user.component';
   styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent implements OnInit {
-  
   @Input() users: User[] = [
     {
-      name: 'Aram', 
-      surname: 'Aramyan', 
+      name: 'Aram',
+      surname: 'Aramyan',
       email: 'aramaramyan@example.com'
     },
     {
-      name: 'Sanasar', 
-      surname: 'Baghdasaryan', 
+      name: 'Sanasar',
+      surname: 'Baghdasaryan',
       email: 'sanasarbaghdasaryan@example.com'
     },
   ];
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog) {
+  }
 
   ngOnInit() {
   }
 
-  openDialog():void {
+  openDialog(): void {
     const dialogRef = this.dialog.open(AddUserComponent, {
       width: '250px'
     });
@@ -38,6 +38,11 @@ export class UserListComponent implements OnInit {
       console.log('The dialog was closed');
       this.users.push(result);
     });
+  }
+
+  deleteUser(UserId: number): void {
+    console.log('WHAT?');
+    this.users.splice(UserId, 1);
   }
 
 }
