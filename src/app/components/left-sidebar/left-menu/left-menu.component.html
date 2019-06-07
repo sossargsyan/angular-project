@@ -1,5 +1,9 @@
 <div>
-  <button *ngFor="let menuItem of menuItems" [attr.routerLink]="menuItem.url" mat-button>
+  <button 
+    *ngFor="let menuItem of menuItems" 
+    [routerLink]="menuItem.url"  
+    mat-button
+    routerLinkActive="mat-primary">
     {{ menuItem.name }}
   </button>
 </div>

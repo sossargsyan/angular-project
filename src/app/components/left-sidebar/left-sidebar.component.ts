@@ -11,7 +11,7 @@ export class LeftSidebarComponent implements OnInit {
   menuItems: MenuItemModel[] = [
     {
       name: 'Dashboard',
-      url: '/'
+      url: '/dashboard'
     },
     {
       name: 'Users',

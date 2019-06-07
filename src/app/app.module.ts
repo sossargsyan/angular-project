@@ -28,6 +28,7 @@ import {
 import { AddUserComponent } from './components/user-list/add-user/add-user.component';
 import { DeleteUserComponent } from './components/user-list/delete-user/delete-user.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     MatListModule,
     FlexLayoutModule,
     MatIconModule,
-
+    AppRoutingModule
   ],
   exports: [
     MatButtonModule,
