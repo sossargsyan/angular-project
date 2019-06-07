@@ -12,6 +12,7 @@ import { TopToolbarComponent } from './components/top-toolbar/top-toolbar.compon
 import { LeftSidebarComponent } from './components/left-sidebar/left-sidebar.component';
 import { LeftMenuComponent } from './components/left-sidebar/left-menu/left-menu.component';
 
+
 import {
   MatButtonModule,
   MatCheckboxModule,
@@ -26,6 +27,7 @@ import {
 } from '@angular/material';
 import { AddUserComponent } from './components/user-list/add-user/add-user.component';
 import { DeleteUserComponent } from './components/user-list/delete-user/delete-user.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { DeleteUserComponent } from './components/user-list/delete-user/delete-u
     LeftSidebarComponent,
     AddUserComponent,
     LeftMenuComponent,
-    DeleteUserComponent
+    DeleteUserComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +56,7 @@ import { DeleteUserComponent } from './components/user-list/delete-user/delete-u
     MatCardModule,
     MatListModule,
     FlexLayoutModule,
-    MatIconModule
+    MatIconModule,
 
   ],
   exports: [

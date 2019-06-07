@@ -10,8 +10,12 @@ export class LeftSidebarComponent implements OnInit {
 
   menuItems: MenuItemModel[] = [
     {
+      name: 'Dashboard',
+      url: '/'
+    },
+    {
       name: 'Users',
-      url: ''
+      url: '/users'
     }
   ];
   constructor() { }
