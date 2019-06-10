@@ -6,9 +6,20 @@
     <div
         fxLayout="row"
         fxLayoutAlign="space-between center">
+        <div fxFlex="70px">{{ user.id }}</div>
         <div fxFlex="150px">{{ user.name }}</div>
         <div fxFlex="250px">{{ user.surname }}</div>
-        <div fxFlex="350px">{{ user.email }}</div>
+        <div fxFlex="350px">{{ user.email }}</div>        
+    </div>
+    <div class="buttons-container-out">
+        <a 
+        [routerLink]="['/users', user.id]"
+        fxFlex="50px">
+        <button mat-button color="primary">
+            Details
+        </button>
+            
+        </a>        
     </div>
     <div class="delete-button-container">
         <button mat-icon-button (click)="openDeleteDialog(index)">

@@ -1,8 +1,9 @@
-import { Component, OnInit, Input, EventEmitter } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import { User } from 'src/app/models/user.model';
 import { AddUserComponent } from './add-user/add-user.component';
+import { UsersService } from 'src/app/services/users.service';
 
 @Component({
   selector: 'app-user-list',
@@ -10,23 +11,13 @@ import { AddUserComponent } from './add-user/add-user.component';
   styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent implements OnInit {
-  @Input() users: User[] = [
-    {
-      name: 'Aram',
-      surname: 'Aramyan',
-      email: 'aramaramyan@example.com'
-    },
-    {
-      name: 'Sanasar',
-      surname: 'Baghdasaryan',
-      email: 'sanasarbaghdasaryan@example.com'
-    },
-  ];
+  users: User[];
 
-  constructor(public dialog: MatDialog) {
+  constructor(public dialog: MatDialog, private userService: UsersService) {
   }
 
   ngOnInit() {
+    this.users = this.userService.getUsers();
   }
 
   openDialog(): void {
@@ -36,12 +27,14 @@ export class UserListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.users.push(result);
+      this.userService.users.push(result);
+      this.users = this.userService.getUsers();
     });
   }
 
   deleteUser(UserId: number): void {
-    this.users.splice(UserId, 1);
+    this.userService.users.splice(UserId, 1);
+    this.users = this.userService.getUsers();
   }
 
 }

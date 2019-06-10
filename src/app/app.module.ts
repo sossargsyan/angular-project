@@ -11,6 +11,7 @@ import { UserDetailComponent } from './components/user-list/user-detail/user-det
 import { TopToolbarComponent } from './components/top-toolbar/top-toolbar.component';
 import { LeftSidebarComponent } from './components/left-sidebar/left-sidebar.component';
 import { LeftMenuComponent } from './components/left-sidebar/left-menu/left-menu.component';
+import { UsersService } from './services/users.service';
 
 
 import {
@@ -68,7 +69,7 @@ import { AppRoutingModule } from './app-routing.module';
     AddUserComponent,
     DeleteUserComponent
   ],
-  providers: [],
+  providers: [UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
