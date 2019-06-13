@@ -1,6 +1,8 @@
 import { User } from '../models/user.model';
 
 export class UsersService {
+
+    private bigestID = 3;
     users: User[] = [
         {
             id: 1,
@@ -26,26 +28,17 @@ export class UsersService {
         return this.users.slice();
     }
 
-    addUser(id:number, name: string, surname: string, email: string) {
-        this.users.push({id:id, name: name, surname: surname, email: email });        
+    addUser(id: number, name: string, surname: string, email: string) {
+        this.bigestID = id;
+        this.users.push({ id, name, surname, email});
     }
 
     getUserByID(id: number) {
-        let user: User;
-        this.users.forEach((element)=> { 
-            if ( element.id == id)
-                user = element;
-        });
-        return user;
+        return this.users.find(item => item.id === id);
     }
 
     getBiggestID() {
-        let id: number = 0;        
-        this.users.forEach((element)=> { 
-            if ( element.id > id)
-                id = element.id;
-        });
-        return id;
+        return this.bigestID;
     }
 
 }
