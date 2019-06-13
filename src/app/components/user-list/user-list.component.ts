@@ -26,9 +26,11 @@ export class UserListComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      this.userService.users.push(result);
-      this.users = this.userService.getUsers();
+      if(result) {
+        console.log('The dialog was closed', result);
+        this.userService.users.push(result);
+        this.users = this.userService.getUsers();
+      }
     });
   }
 
@@ -36,5 +38,4 @@ export class UserListComponent implements OnInit {
     this.userService.users.splice(UserId, 1);
     this.users = this.userService.getUsers();
   }
-
 }

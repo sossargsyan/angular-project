@@ -1,17 +1,36 @@
 <div class="add-user-list">
-        <div class="head-add-user">
-          <p>Add User</p>
-        </div><br>
-        <form class="example-form">
-            <mat-form-field class="example-full-width">
-                <input matInput placeholder="Name" [(ngModel)]="name" name="name">
-            </mat-form-field><br>
-            <mat-form-field class="example-full-width">
-                <input matInput placeholder="Surname" [(ngModel)]="surname" name="surname">
-            </mat-form-field>
-            <mat-form-field class="example-full-width">
-                <input matInput placeholder="Email" [(ngModel)]="email" name="email">
-            </mat-form-field>
-        </form>
-        <button mat-raised-button color="primary" (click)="addUser()">Add User</button>
-    </div>
+    <div class="head-add-user">
+        <p>Add User</p>
+    </div><br>
+    <form class="example-form" [formGroup]="addUserForm" fxLayout="row wrap">
+        <mat-form-field fxFlex="100">
+            <input matInput placeholder="Name" formControlName="name" required>
+            <mat-error *ngIf="addUserForm.get('name').invalid">
+                Name is required fild.
+            </mat-error>
+        </mat-form-field><br>
+        <mat-form-field fxFlex="100">
+            <input matInput placeholder="Surname" formControlName="surname" required>
+            <mat-error *ngIf="addUserForm.get('surname').invalid">
+                Surame is required fild.
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field fxFlex="100">
+            <input matInput placeholder="Email" formControlName="email" required>
+            <mat-error *ngIf="addUserForm.get('email').hasError('required')">
+                Email is required fild.
+            </mat-error>
+            <mat-error *ngIf="addUserForm.get('email').hasError('email')">
+                Please enter a valid email.
+            </mat-error>
+        </mat-form-field>
+    </form>
+    <div mat-dialog-actions fxLayoutAlign="end center">
+        <button mat-button mat-dialog-close>Close</button>
+        <button 
+            mat-raised-button
+            color="primary"
+            (click)="addUser(addUserForm.value)"
+            [disabled]="addUserForm.invalid">Add User</button>
+    </div>    
+</div>

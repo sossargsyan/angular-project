@@ -2,8 +2,8 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { User } from 'src/app/models/user.model';
-import { interval } from 'rxjs';
 import { UsersService } from 'src/app/services/users.service';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-add-user',
@@ -12,25 +12,25 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class AddUserComponent implements OnInit {
 
-  name:string;
-  surname:string;
-  email:string;
+  addUserForm: FormGroup;
 
   constructor(
     public dialogRef: MatDialogRef<AddUserComponent>,
     @Inject(MAT_DIALOG_DATA) public data: User,
-    private userService: UsersService) {}
+    private userService: UsersService,
+    private fb: FormBuilder) {
+    this.addUserForm = this.fb.group({      
+      name: new FormControl('', [Validators.required]),
+      surname: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+    });
+  }
 
   ngOnInit() {
   }
 
-  addUser() {
-    var userData: User = {
-      id: this.userService.getBiggestID() + 1,
-      name: this.name,
-      surname: this.surname,
-      email: this.email
-    };
+  addUser(userData: User) {
+    userData.id = this.userService.getBiggestID() + 1;
     this.dialogRef.close(userData);
   }
 
