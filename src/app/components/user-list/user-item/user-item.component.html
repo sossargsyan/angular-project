@@ -5,22 +5,13 @@
     class="user-item-container">
     <div
         fxLayout="row"
-        fxLayoutAlign="space-between center">
+        fxLayoutAlign="space-between center"
+        (click)="goToDetail()">
         <div fxFlex="70px">{{ user.id }}</div>
         <div fxFlex="150px">{{ user.name }}</div>
         <div fxFlex="250px">{{ user.surname }}</div>
         <div fxFlex="350px">{{ user.email }}</div>        
-    </div>
-    <div class="buttons-container-out">
-        <a 
-        [routerLink]="['/users', user.id]"
-        fxFlex="50px">
-        <button mat-button color="primary">
-            Details
-        </button>
-            
-        </a>        
-    </div>
+    </div>    
     <div class="delete-button-container">
         <button mat-icon-button (click)="openDeleteDialog(index)">
             <mat-icon>delete</mat-icon>

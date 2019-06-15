@@ -2,6 +2,7 @@ import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { User } from 'src/app/models/user.model';
 import { MatDialog } from '@angular/material/dialog';
 import { DeleteUserComponent } from '../delete-user/delete-user.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-item',
@@ -13,7 +14,8 @@ export class UserItemComponent implements OnInit {
 
   @Input() user: User;
   @Input() index: number;
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog,
+              private router: Router) { }
 
   ngOnInit() {
   }
@@ -33,6 +35,10 @@ export class UserItemComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
+  }
+
+  goToDetail() {
+    this.router.navigate(['/users', this.user.id]);
   }
 
 }
