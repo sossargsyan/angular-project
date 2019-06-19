@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { UserListComponent } from './components/user-list/user-list.component';
@@ -12,7 +13,6 @@ import { TopToolbarComponent } from './components/top-toolbar/top-toolbar.compon
 import { LeftSidebarComponent } from './components/left-sidebar/left-sidebar.component';
 import { LeftMenuComponent } from './components/left-sidebar/left-menu/left-menu.component';
 import { UsersService } from './services/users.service';
-
 
 import {
   MatButtonModule,
@@ -60,7 +60,8 @@ import { AppRoutingModule } from './app-routing.module';
     MatListModule,
     FlexLayoutModule,
     MatIconModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   exports: [
     MatButtonModule,

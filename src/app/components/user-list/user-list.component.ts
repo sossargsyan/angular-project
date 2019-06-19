@@ -17,7 +17,13 @@ export class UserListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.users = this.userService.getUsers();
+    this.userService.getUsers().subscribe((data: User[]) => {
+      this.users = data;
+      console.log('----------------------------------------------------------');
+      console.log(this.users);
+      console.log('----------------------------------------------------------');
+    });
+    // this.users = this.userService.getUsers();
   }
 
   openDialog(): void {
@@ -29,13 +35,13 @@ export class UserListComponent implements OnInit {
       if(result) {
         console.log('The dialog was closed', result);
         this.userService.users.push(result);
-        this.users = this.userService.getUsers();
+        // this.users = this.userService.getUsers();
       }
     });
   }
 
   deleteUser(UserId: number): void {
     this.userService.users.splice(UserId, 1);
-    this.users = this.userService.getUsers();
+    // this.users = this.userService.getUsers();
   }
 }
