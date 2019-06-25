@@ -36,9 +36,10 @@ export class UsersService {
         return this.http.get('http://localhost:3000/api/users', { headers });
     }
 
-    addUser(id: number, name: string, surname: string, email: string) {
-        this.bigestID = id;
-        this.users.push({ id, name, surname, email});
+    addUser(user: User) {
+        // this.users.push({ id, name, surname, email});
+        const headers = new HttpHeaders();
+        return this.http.post('http://localhost:3000/api/user/', user, { headers });
     }
 
     updateUser(user) {
