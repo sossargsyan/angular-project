@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { User } from '../models/user.model';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable()
 export class UsersService {
@@ -45,6 +46,11 @@ export class UsersService {
         this.users.push({ id, name, surname, email});
     }
 
+    updateUser(user) {
+      const headers = new HttpHeaders();
+      return this.http.put('http://localhost:3000/api/update-user/' + user.id, user, { headers });
+    }
+
     getUserByID(id: number) {
         return this.users.find(item => item.id === id);
     }
@@ -52,5 +58,6 @@ export class UsersService {
     getBiggestID() {
         return this.bigestID;
     }
+
 
 }
