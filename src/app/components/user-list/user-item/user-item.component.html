@@ -13,7 +13,7 @@
         <div fxFlex="350px">{{ user.email }}</div>        
     </div>    
     <div class="delete-button-container">
-        <button mat-icon-button (click)="openDeleteDialog(index)">
+        <button mat-icon-button (click)="openDeleteDialog(user.id)">
             <mat-icon>delete</mat-icon>
         </button>
     </div>
