@@ -23,7 +23,6 @@ export class UserListComponent implements OnInit {
       console.log(this.users);
       console.log('----------------------------------------------------------');
     });
-    // this.users = this.userService.getUsers();
   }
 
   openDialog(): void {

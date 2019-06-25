@@ -30,6 +30,7 @@ import { AddUserComponent } from './components/user-list/add-user/add-user.compo
 import { DeleteUserComponent } from './components/user-list/delete-user/delete-user.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AppRoutingModule } from './app-routing.module';
+import { EditUserComponent } from './components/user-list/edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { AppRoutingModule } from './app-routing.module';
     AddUserComponent,
     LeftMenuComponent,
     DeleteUserComponent,
-    DashboardComponent
+    DashboardComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,
@@ -69,6 +71,7 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   entryComponents: [
     AddUserComponent,
+    EditUserComponent,
     DeleteUserComponent
   ],
   providers: [UsersService],
