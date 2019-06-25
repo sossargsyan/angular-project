@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { User } from '../models/user.model';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable()
 export class UsersService {
@@ -30,7 +31,7 @@ export class UsersService {
 
     constructor(private http: HttpClient) { }
 
-    getUsers() {
+    getUsers() {       
         const headers = new HttpHeaders();
         return this.http.get('http://localhost:3000/api/users', { headers });
     }
@@ -46,6 +47,11 @@ export class UsersService {
 
     getBiggestID() {
         return this.bigestID;
+    }
+
+    updateUser(newUser) {
+        const index = this.users.findIndex(item => item.id === newUser.id);
+        this.users[index] = newUser;
     }
 
 }
