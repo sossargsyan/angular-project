@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { User } from '../models/user.model';
-import { Observable, Subject } from 'rxjs';
 
 @Injectable()
 export class UsersService {
@@ -10,19 +9,19 @@ export class UsersService {
     private bigestID = 3;
     users: User[] = [
         {
-            id: 1,
+            _id: '1',
             name: 'Aram',
             surname: 'Aramyan',
             email: 'aramaramyan@example.com'
         },
         {
-            id: 2,
+            _id: '2',
             name: 'Sanasar',
             surname: 'Baghdasaryan',
             email: 'sanasarbaghdasaryan@example.com'
         },
         {
-            id: 3,
+            _id: '3',
             name: 'Sanasar',
             surname: 'Baghdasaryan',
             email: 'sanasarbaghdasaryan@example.com'
@@ -49,11 +48,12 @@ export class UsersService {
 
     updateUser(user) {
       const headers = new HttpHeaders();
-      return this.http.put('http://localhost:3000/api/update-user/' + user.id, user, { headers });
+      return this.http.put('http://localhost:3000/api/update-user/' + user._id, user, { headers });
     }
 
-    getUserByID(id: number) {
-        return this.users.find(item => item.id === id);
+    getUserByID(id: string) {
+        const headers = new HttpHeaders();
+        return this.http.get('http://localhost:3000/api/user/' + id, { headers });        
     }
 
     getBiggestID() {

@@ -1,13 +1,21 @@
-<p>
-  id is {{user.id}}
-</p>
-<p>
-  name is {{user.name}}
-</p>
-<p>
-  surname is {{user.surname}}
-</p>
-<p>
-  email is {{user.email}}
-</p>
-<button mat-stroked-button color="primary" (click)="openDialog()">Edit</button>
+<div *ngIf="user === undefined && !userNotFound">
+  searching for user with id {{ id }}
+</div>
+<div *ngIf="userNotFound">
+  user with id {{ id }} not found
+</div>
+<div *ngIf="user !== undefined">
+  <p>
+    id is {{ id }}
+  </p>
+  <p>
+    name is {{ user.name }}
+  </p>
+  <p>
+    surname is {{ user.surname }}
+  </p>
+  <p>
+    email is {{ user.email }}
+  </p>
+  <button mat-stroked-button color="primary" (click)="openDialog()">Edit</button>
+</div>

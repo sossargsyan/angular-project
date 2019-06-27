@@ -2,8 +2,7 @@
   <div class="head-add-user">
       <p>Add User</p>
   </div><br>
-  <form class="example-form" [formGroup]="editUserForm" fxLayout="row wrap">
-      <input type="hidden" formControlName="id">
+  <form class="example-form" [formGroup]="editUserForm" fxLayout="row wrap">      
       <mat-form-field fxFlex="100">
           <input matInput placeholder="Name" formControlName="name" required>
           <mat-error *ngIf="editUserForm.get('name').invalid">
