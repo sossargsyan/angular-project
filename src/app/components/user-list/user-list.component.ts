@@ -30,10 +30,10 @@ export class UserListComponent implements OnInit {
       width: '250px'
     });
 
-    dialogRef.afterClosed().subscribe(result => {
-      if(result) {
-        console.log('The dialog was closed', result);
-        this.userService.users.push(result);
+    dialogRef.afterClosed().subscribe(user => {
+      if(user) {
+        console.log('The dialog was closed', user);
+        this.users.push(user);
         // this.users = this.userService.getUsers();
       }
     });

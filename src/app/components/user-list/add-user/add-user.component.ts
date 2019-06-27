@@ -22,7 +22,10 @@ export class AddUserComponent implements OnInit {
   ngOnInit() {
   }
   addUser(userData: User) {
-    userData.id = this.userService.getBiggestID() + 1;
-    this.dialogRef.close(userData);
+    this.userService.addUser(userData).subscribe((data: any) => {
+      this.dialogRef.close(data.user);
+    }, error => {
+      console.log(error);
+    });    
   }
 }
