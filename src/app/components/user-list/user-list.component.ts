@@ -11,13 +11,16 @@ import { UsersService } from 'src/app/services/users.service';
   styleUrls: ['./user-list.component.scss']
 })
 export class UserListComponent implements OnInit {
+  loading = false;
   users: User[];
 
   constructor(public dialog: MatDialog, private userService: UsersService) {
   }
 
   ngOnInit() {
+    this.loading = true;
     this.userService.getUsers().subscribe((data: User[]) => {
+      this.loading = false;
       this.users = data;
       console.log('----------------------------------------------------------');
       console.log(this.users);
