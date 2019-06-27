@@ -25,6 +25,7 @@ import {
   MatCardModule,
   MatListModule,
   MatIconModule,
+  MatSnackBarModule,
   MatProgressSpinnerModule
 } from '@angular/material';
 import { AddUserComponent } from './components/user-list/add-user/add-user.component';
@@ -64,6 +65,7 @@ import { EditUserComponent } from './components/user-list/edit-user/edit-user.co
     MatListModule,
     FlexLayoutModule,
     MatIconModule,
+    MatSnackBarModule,
     AppRoutingModule,
     HttpClientModule
   ],
