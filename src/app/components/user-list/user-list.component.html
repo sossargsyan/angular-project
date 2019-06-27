@@ -1,13 +1,23 @@
 <mat-card>
-  <mat-list>
+  <div *ngIf="loading">
+      <mat-progress-spinner
+          [color]="primary"
+          [mode]="'indeterminate'">
+      </mat-progress-spinner>
+  </div>
+  <mat-list *ngIf="users !== undefined && !loading">
     <mat-list-item
       *ngFor="let user of users; let i = index; let l = last">
       <app-user-item
         (DeleteUser)="deleteUser($event)"
         [user]="user"
+        [index]="i"
         fxFlex="100"></app-user-item>
         <mat-divider *ngIf="!l"></mat-divider>
     </mat-list-item>    
   </mat-list>
+  <mat-card-title *ngIf="!loading && (users === undefined || users.length === 0)">
+    No users found
+  </mat-card-title>
 </mat-card>
 <button mat-mini-fab color="primary" class="add-user" (click)="openDialog()">+</button>

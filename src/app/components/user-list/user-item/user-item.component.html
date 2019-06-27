@@ -7,13 +7,12 @@
         fxLayout="row"
         fxLayoutAlign="space-between center"
         (click)="goToDetail()">
-        <div fxFlex="70px">{{ user._id }}</div>
         <div fxFlex="150px">{{ user.name }}</div>
         <div fxFlex="250px" fxHide="" fxShow.gt-md="true">{{ user.surname }}</div>
         <div fxFlex="350px" fxHide="" fxShow.gt-sm="true">{{ user.email }}</div>        
     </div>    
     <div class="delete-button-container">
-        <button mat-icon-button (click)="openDeleteDialog(user.id)">
+        <button mat-icon-button (click)="openDeleteDialog()">
             <mat-icon>delete</mat-icon>
         </button>
     </div>

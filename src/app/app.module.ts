@@ -25,7 +25,8 @@ import {
   MatCardModule,
   MatListModule,
   MatIconModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatProgressSpinnerModule
 } from '@angular/material';
 import { AddUserComponent } from './components/user-list/add-user/add-user.component';
 import { DeleteUserComponent } from './components/user-list/delete-user/delete-user.component';
@@ -56,6 +57,7 @@ import { EditUserComponent } from './components/user-list/edit-user/edit-user.co
     MatToolbarModule,
     MatInputModule,
     MatDialogModule,
+    MatProgressSpinnerModule,
     FormsModule,
     ReactiveFormsModule,
     MatMenuModule,
