@@ -11,6 +11,7 @@
       <app-user-item
         (DeleteUser)="deleteUser($event)"
         [user]="user"
+        [index]="i"
         fxFlex="100"></app-user-item>
         <mat-divider *ngIf="!l"></mat-divider>
     </mat-list-item>    
