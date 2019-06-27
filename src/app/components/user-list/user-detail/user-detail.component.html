@@ -1,21 +1,30 @@
-<div *ngIf="user === undefined && !userNotFound">
-  searching for user with id {{ id }}
-</div>
-<div *ngIf="userNotFound">
-  user with id {{ id }} not found
-</div>
-<div *ngIf="user !== undefined">
-  <p>
-    id is {{ id }}
-  </p>
-  <p>
-    name is {{ user.name }}
-  </p>
-  <p>
-    surname is {{ user.surname }}
-  </p>
-  <p>
-    email is {{ user.email }}
-  </p>
-  <button mat-stroked-button color="primary" (click)="openDialog()">Edit</button>
-</div>
+<mat-card>
+  <div *ngIf="user === undefined && !userNotFound">
+    <mat-progress-spinner
+      [color]="primary"
+      [mode]="'indeterminate'"
+      diameter="35">
+    </mat-progress-spinner>
+  </div>
+  <div *ngIf="userNotFound">
+    user with id {{ id }} not found
+  </div>
+
+  <div *ngIf="user !== undefined">
+    <mat-list>
+      <mat-list-item>
+        id is {{ id }}
+      </mat-list-item>
+      <mat-list-item>
+        name is {{ user.name }}
+      </mat-list-item>
+      <mat-list-item>
+        surname is {{ user.surname }}
+      </mat-list-item>
+      <mat-list-item>
+        email is {{ user.email }}
+      </mat-list-item>
+    </mat-list>
+    <button mat-stroked-button color="primary" (click)="openDialog()">Edit</button>
+  </div>
+</mat-card>

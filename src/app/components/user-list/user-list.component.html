@@ -1,9 +1,10 @@
 <mat-card>
   <div *ngIf="loading">
-      <mat-progress-spinner
-          [color]="primary"
-          [mode]="'indeterminate'">
-      </mat-progress-spinner>
+    <mat-progress-spinner
+      [color]="primary"
+      [mode]="'indeterminate'"
+      diameter="35">
+    </mat-progress-spinner>
   </div>
   <mat-list *ngIf="users !== undefined && !loading">
     <mat-list-item
