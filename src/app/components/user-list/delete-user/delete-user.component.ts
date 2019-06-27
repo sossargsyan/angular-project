@@ -2,6 +2,7 @@ import { Component, OnInit, Inject, EventEmitter } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 import { UsersService } from 'src/app/services/users.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 
 
@@ -16,7 +17,8 @@ export class DeleteUserComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<DeleteUserComponent>,
     @Inject(MAT_DIALOG_DATA) public data: {id: string},
-    private userService: UsersService) {}
+    private userService: UsersService,
+    private _snackBar: MatSnackBar) {}
 
   ngOnInit() {
   }
@@ -25,7 +27,9 @@ export class DeleteUserComponent implements OnInit {
     this.userService.deleteUser(this.data.id).subscribe((res: any) => {
       this.dialogRef.close(res);
     }, error => {
-      console.log(error);
+      this._snackBar.open(error.error.errorMessage, "close", {
+        duration: 5000,
+      });
     });    
   }
 
