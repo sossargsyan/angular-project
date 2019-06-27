@@ -35,6 +35,11 @@ export class UsersService {
         return this.http.get('http://localhost:3000/api/users', { headers });
     }
 
+    deleteUser(userID) {
+        const headers = new HttpHeaders();
+        return this.http.delete('http://localhost:3000/api/users/' + userID, { headers });
+    }
+
     addUser(user: User) {
         // this.users.push({ id, name, surname, email});
         const headers = new HttpHeaders();

@@ -13,17 +13,17 @@ export class UserItemComponent implements OnInit {
   @Output() DeleteUser = new EventEmitter<number>();
 
   @Input() user: User;
-  @Input() index: number;
+
   constructor(public dialog: MatDialog,
               private router: Router) { }
 
   ngOnInit() {
   }
 
-  openDeleteDialog(index: number): void {
+  openDeleteDialog(id: string): void {
     const dialogRef = this.dialog.open(DeleteUserComponent, {
       width: '250px',
-      data: index,
+      data: id,
     });
 
     dialogRef.componentInstance.onDeleteUser.subscribe(
