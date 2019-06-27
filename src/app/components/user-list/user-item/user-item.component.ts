@@ -38,7 +38,7 @@ export class UserItemComponent implements OnInit {
   }
 
   goToDetail() {
-    this.router.navigate(['/users', this.user.id]);
+    this.router.navigate(['/users', this.user._id]);
   }
 
 }

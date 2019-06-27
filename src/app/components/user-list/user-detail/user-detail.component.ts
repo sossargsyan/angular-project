@@ -13,13 +13,22 @@ import { EditUserComponent } from '../edit-user/edit-user.component';
   styleUrls: ['./user-detail.component.scss']
 })
 export class UserDetailComponent implements OnInit {
-  id: number;
+  id: string;
   user: User;
+  userNotFound = false;
   constructor(private route: ActivatedRoute, private userService: UsersService, private dialog: MatDialog) { }
 
   ngOnInit() {
-    this.id = parseInt( this.route.snapshot.params['id'] );
-    this.user = this.userService.getUserByID(this.id);
+    this.id =  this.route.snapshot.params['id'];
+    this.userService.getUserByID(this.id).subscribe(
+      (data: User) => {
+        setTimeout(()=>{
+          this.user = data;
+        },2000);
+      }, error => {
+        this.userNotFound = true;
+      }
+    );
   }
 
   openDialog(): void {
@@ -29,10 +38,8 @@ export class UserDetailComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if(result) {
-        console.log('The user was updated', result);
-        this.userService.updateUser(result);
-        this.user = this.userService.getUserByID(result.id);
+      if(result) {        
+        this.user = result;        
       }
     });
   }
