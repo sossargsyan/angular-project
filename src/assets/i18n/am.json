@@ -1,0 +1,21 @@
+{
+  "TOP-TOOLBAR": {
+    "siteTitle": "Օգտատերերի կառավարում"
+  },
+  "LEFT-SIDEBAR": {
+    "dashboard": "Վահանակ",
+    "users": "Օգտատերեր"
+  },
+  "ADD-EDIT-USER": {
+    "AddUser": "Ավելացնել օգտատեր",
+    "name": "անուն",
+    "RequiredNameError": "անհրաժեշտ է ներմուծել անունը",
+    "surname": "օգտանուն",
+    "RequiredSurnameError": "անհրաժեշտ է ներմուծել օգտանունը",
+    "mail": "Էլ. պոստ",
+    "RequiredMailError": "անհրաժեշտ է ներմուծել Էլ. պոստը",
+    "ValidMailError": "խնդրում ենք ներմուծել Ճիշտ Էլ. պոստը",
+    "close": "փակել",
+    "addUser": "ավելացնել"
+  }
+}

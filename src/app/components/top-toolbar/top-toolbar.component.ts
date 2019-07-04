@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-top-toolbar',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./top-toolbar.component.scss']
 })
 export class TopToolbarComponent implements OnInit {
+  SiteTitle: string;
 
-  constructor() { }
+  constructor(translate: TranslateService) {
+    translate.get('TOP-TOOLBAR').subscribe((res) => {
+      this.SiteTitle = res.siteTitle;
+    });
+  }
 
   ngOnInit() {
+
   }
 
 }
