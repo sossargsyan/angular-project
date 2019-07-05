@@ -3,7 +3,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 import { AppComponent } from './app.component';
 import { UserListComponent } from './components/user-list/user-list.component';
@@ -26,13 +28,18 @@ import {
   MatListModule,
   MatIconModule,
   MatSnackBarModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatSelectModule
 } from '@angular/material';
 import { AddUserComponent } from './components/user-list/add-user/add-user.component';
 import { DeleteUserComponent } from './components/user-list/delete-user/delete-user.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AppRoutingModule } from './app-routing.module';
 import { EditUserComponent } from './components/user-list/edit-user/edit-user.component';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/translations/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -56,6 +63,7 @@ import { EditUserComponent } from './components/user-list/edit-user/edit-user.co
     MatSidenavModule,
     MatToolbarModule,
     MatInputModule,
+    MatSelectModule,
     MatDialogModule,
     MatProgressSpinnerModule,
     FormsModule,
@@ -65,9 +73,16 @@ import { EditUserComponent } from './components/user-list/edit-user/edit-user.co
     MatListModule,
     FlexLayoutModule,
     MatIconModule,
-    MatSnackBarModule,
+    MatSnackBarModule,   
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   exports: [
     MatButtonModule,

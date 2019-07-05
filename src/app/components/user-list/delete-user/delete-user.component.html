@@ -1,9 +1,7 @@
 <div mat-dialog-content>
-  <p>Do You realy want to delete this user?</p>
+  <p>{{ 'DELETE-USER.topText' | translate }}</p>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button (click)="deleteUser()" cdkFocusInitial>Delete</button>   <!--[mat-dialog-close]-->
-
-
+  <button mat-button (click)="onNoClick()">{{ 'DELETE-USER.cancelText' | translate }}</button>
+  <button mat-button (click)="deleteUser()" cdkFocusInitial>{{ 'DELETE-USER.deleteText' | translate }}</button>   <!--[mat-dialog-close]-->
 </div>

@@ -1,3 +1,8 @@
-<p>
-  dashboard works!
-</p>
+<mat-form-field>
+  <mat-label>{{ 'SETTINGS.select' | translate }}</mat-label>
+  <mat-select (selectionChange)="changeLang($event.value)">
+    <mat-option *ngFor="let lang of langs" [value]="lang.value">
+      {{lang.title}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

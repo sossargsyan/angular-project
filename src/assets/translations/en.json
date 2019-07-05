@@ -1,0 +1,23 @@
+{
+    "MENU": {
+        "settings": "Settings",
+        "users": "Users"
+    },
+    "SETTINGS": {
+        "select": "Select Language"
+    },
+    "DELETE-USER": {
+        "topText": "Do You realy want to delete this user?",
+        "cancelText": "No Thanks",
+        "deleteText": "Delete"
+    },
+    "USER-DETAIL": {
+        "userWithID": "User with id",
+        "notFound": "not found!",
+        "id": "Id is",
+        "name": "Name is",
+        "surname": "Surname is",
+        "email": "Email is",
+        "edit": "Edit"
+    }
+}

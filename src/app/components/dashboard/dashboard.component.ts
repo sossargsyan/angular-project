@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  langs = [
+    {
+      value: 'en',
+      title: 'English'
+    },
+    {
+      value: 'hy',
+      title: 'Հայերեն'
+    }
+  ];
+
+  constructor(private _translate: TranslateService) { }
 
   ngOnInit() {
+  }
+
+  changeLang(lang: string) {
+    this._translate.use(lang);
   }
 
 }

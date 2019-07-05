@@ -7,24 +7,24 @@
     </mat-progress-spinner>
   </div>
   <div *ngIf="userNotFound">
-    user with id {{ id }} not found
+    {{ 'USER-DETAIL.userWithID' | translate }} {{ id }} {{ 'USER-DETAIL.notFound' | translate }}
   </div>
 
   <div *ngIf="user !== undefined">
     <mat-list>
       <mat-list-item>
-        id is {{ id }}
+        {{ 'USER-DETAIL.id' | translate }} {{ id }}
       </mat-list-item>
       <mat-list-item>
-        name is {{ user.name }}
+        {{ 'USER-DETAIL.name' | translate }} {{ user.name }}
       </mat-list-item>
       <mat-list-item>
-        surname is {{ user.surname }}
+        {{ 'USER-DETAIL.surname' | translate }} {{ user.surname }}
       </mat-list-item>
       <mat-list-item>
-        email is {{ user.email }}
+        {{ 'USER-DETAIL.email' | translate }} {{ user.email }}
       </mat-list-item>
     </mat-list>
-    <button mat-stroked-button color="primary" (click)="openDialog()">Edit</button>
+    <button mat-stroked-button color="primary" (click)="openDialog()">{{ 'USER-DETAIL.edit' | translate }}</button>
   </div>
 </mat-card>

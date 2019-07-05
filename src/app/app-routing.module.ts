@@ -6,10 +6,10 @@ import { UserListComponent } from './components/user-list/user-list.component';
 import { UserDetailComponent } from './components/user-list/user-detail/user-detail.component';
 
 const appRoutes: Routes = [
-  { path: 'dashboard', component: DashboardComponent },
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: 'settings', component: DashboardComponent },
   { path: 'users', component: UserListComponent },
   { path: 'users/:id', component: UserDetailComponent },
+  { path: '', redirectTo: '/users', pathMatch: 'full' },
 ];
 
 @NgModule({

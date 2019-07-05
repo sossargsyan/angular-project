@@ -8,14 +8,14 @@ import { MenuItemModel } from '../../models/menu-item.model';
 })
 export class LeftSidebarComponent implements OnInit {
 
-  menuItems: MenuItemModel[] = [
+  menuItems: MenuItemModel[] = [    
     {
-      name: 'Dashboard',
-      url: '/dashboard'
+      name: 'users',
+      url: '/users'
     },
     {
-      name: 'Users',
-      url: '/users'
+      name: "settings",
+      url: '/settings'
     }
   ];
   constructor() { }
