@@ -19,5 +19,25 @@
         "surname": "Surname is",
         "email": "Email is",
         "edit": "Edit"
+    },
+    "TOP-TOOLBAR": {
+        "siteTitle": "User management"
+    },
+    "LEFT-SIDEBAR": {
+        "dashboard": "Dashboard",
+        "users": "Users"
+    },
+    "ADD-EDIT-USER": {
+        "AddUser": "Add user",
+        "name": "Name",
+        "RequiredNameError": "Name is required field.",
+        "surname": "Surname",
+        "RequiredSurnameError": "Surname is required field.",
+        "mail": "Email",
+        "RequiredMailError": "Email is required field.",
+        "ValidMailError": "Please enter a valid email.",
+        "close": "close",
+        "addUser": "Add User"
     }
+
 }

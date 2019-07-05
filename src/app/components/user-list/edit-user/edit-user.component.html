@@ -1,36 +1,36 @@
 <div class="add-user-list">
   <div class="head-add-user">
-      <p>Add User</p>
+      <p>{{ PageText.AddUser }}</p>
   </div><br>
-  <form class="example-form" [formGroup]="editUserForm" fxLayout="row wrap">      
+  <form class="example-form" [formGroup]="editUserForm" fxLayout="row wrap">
       <mat-form-field fxFlex="100">
-          <input matInput placeholder="Name" formControlName="name" required>
+          <input matInput [placeholder]="PageText.name" formControlName="name" required>
           <mat-error *ngIf="editUserForm.get('name').invalid">
-              Name is required fild.
+              {{ PageText.RequiredNameError }}
           </mat-error>
       </mat-form-field><br>
       <mat-form-field fxFlex="100">
-          <input matInput placeholder="Surname" formControlName="surname" required>
+          <input matInput [placeholder]="PageText.surname" formControlName="surname" required>
           <mat-error *ngIf="editUserForm.get('surname').invalid">
-              Surame is required fild.
+            {{ PageText.RequiredSurnameError }}
           </mat-error>
       </mat-form-field>
       <mat-form-field fxFlex="100">
-          <input matInput placeholder="Email" formControlName="email" required>
+          <input matInput [placeholder]="PageText.mail" formControlName="email" required>
           <mat-error *ngIf="editUserForm.get('email').hasError('required')">
-              Email is required fild.
+            {{ PageText.RequiredMailError }}
           </mat-error>
           <mat-error *ngIf="editUserForm.get('email').hasError('email')">
-              Please enter a valid email.
+            {{ PageText.ValidMailError }}
           </mat-error>
       </mat-form-field>
   </form>
   <div mat-dialog-actions fxLayoutAlign="end center">
-      <button mat-button mat-dialog-close>Close</button>
-      <button 
+      <button mat-button mat-dialog-close>{{ PageText.close }}</button>
+      <button
           mat-raised-button
           color="primary"
           (click)="updateUser(editUserForm.value)"
-          [disabled]="editUserForm.invalid">Update User</button>
-  </div>    
+          [disabled]="editUserForm.invalid">{{ PageText.addUser }}</button>
+  </div>
 </div>

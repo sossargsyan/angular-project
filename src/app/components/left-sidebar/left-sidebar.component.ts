@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItemModel } from '../../models/menu-item.model';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-left-sidebar',
@@ -18,7 +19,13 @@ export class LeftSidebarComponent implements OnInit {
       url: '/settings'
     }
   ];
-  constructor() { }
+  constructor(translate: TranslateService) {
+    // translate.get('LEFT-SIDEBAR').subscribe((res) => {
+    //   this.menuItems[0].name = res.dashboard;
+    //   this.menuItems[1].name = res.users;
+    // });
+  }
+
 
   ngOnInit() {
   }
