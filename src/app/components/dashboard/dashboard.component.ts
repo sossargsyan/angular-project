@@ -8,6 +8,8 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class DashboardComponent implements OnInit {
 
+  selectedLang: string;
+
   langs = [
     {
       value: 'en',
@@ -22,10 +24,12 @@ export class DashboardComponent implements OnInit {
   constructor(private _translate: TranslateService) { }
 
   ngOnInit() {
+    this.selectedLang = localStorage.getItem('lang');
   }
 
   changeLang(lang: string) {
+    this.selectedLang = lang;
     this._translate.use(lang);
+    localStorage.setItem('lang', lang);
   }
-
 }

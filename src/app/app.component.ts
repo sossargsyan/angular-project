@@ -10,7 +10,15 @@ export class AppComponent {
   title = 'angular-project';
 
   constructor(translate: TranslateService) {
-    translate.setDefaultLang('en');
-    translate.use('en');
+    let lang = localStorage.getItem('lang');
+    if  (!!lang) {
+      translate.setDefaultLang(lang);
+      translate.use(lang);
+    }else{
+      translate.setDefaultLang('en');
+      translate.use('en');
+      localStorage.setItem('lang', 'en');
+    }
+    
   }
 }
