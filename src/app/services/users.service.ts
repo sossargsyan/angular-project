@@ -53,7 +53,7 @@ export class UsersService {
 
     getUserByID(id: string) {
         const headers = new HttpHeaders();
-        return this.http.get('http://localhost:3000/api/user/' + id, { headers });        
+        return this.http.get('http://localhost:3000/api/user/' + id, { headers });
     }
 
     getBiggestID() {
