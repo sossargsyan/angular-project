@@ -25,7 +25,7 @@ export class AddUsersToStore implements Action {
 export class AddUserToServer implements Action {
     readonly type = ADD_USER_TO_SERVER;
 
-    constructor(public payload: User) {}
+    constructor(public payload: User, public dialogRef? :any) {}
 }
 
 export class AddUserToStore implements Action {
@@ -37,7 +37,7 @@ export class AddUserToStore implements Action {
 export class DeleteUserFromServer implements Action {
     readonly type = DELETE_USER_FROM_SERVER;
 
-    constructor(public payload: string) {}
+    constructor(public payload: string, public dialogRef? :any) {}
 }
 
 export class DeleteUserFromStore implements Action {

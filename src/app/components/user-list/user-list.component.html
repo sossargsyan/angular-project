@@ -1,14 +1,16 @@
 <mat-card>
-  <div *ngIf="loading">
+  
+  <div *ngIf="(loading | async)">
     <mat-progress-spinner
       [color]="primary"
       [mode]="'indeterminate'"
       diameter="35">
     </mat-progress-spinner>
   </div>
-  <mat-list *ngIf="users !== undefined && !loading">
+  <mat-list *ngIf="(users | async ) !== undefined && !(loading | async)">
+    
     <mat-list-item
-      *ngFor="let user of users; let i = index; let l = last">
+      *ngFor="let user of users | async ; let i = index; let l = last">
       <app-user-item
         (DeleteUser)="deleteUser($event)"
         [user]="user"
@@ -17,7 +19,7 @@
         <mat-divider *ngIf="!l"></mat-divider>
     </mat-list-item>    
   </mat-list>
-  <mat-card-title *ngIf="!loading && (users === undefined || users.length === 0)">
+  <mat-card-title *ngIf="!loading && ((users | async) === undefined || (users | async).length === 0)">
     No users found
   </mat-card-title>
 </mat-card>

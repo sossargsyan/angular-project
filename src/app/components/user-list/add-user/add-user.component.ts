@@ -5,7 +5,10 @@ import { UsersService } from 'src/app/services/users.service';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
+import { Store } from '@ngrx/store';
 
+import * as fromApp from '../../../store/reducers/app.reducer';
+import * as UsersActions from '../../../store/actions/user.actions';
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
@@ -21,7 +24,8 @@ export class AddUserComponent implements OnInit {
               private userService: UsersService,
               private fb: FormBuilder,
               private _snackBar: MatSnackBar,
-              translate: TranslateService) {
+              translate: TranslateService,
+              private store: Store<fromApp.AppState>) {
     translate.get('ADD-EDIT-USER').subscribe((res) => {
       this.PageText = res;
     });
@@ -37,13 +41,13 @@ export class AddUserComponent implements OnInit {
   }
 
   addUser(userData: User) {
-
-    this.userService.addUser(userData).subscribe((data: any) => {
-      this.dialogRef.close(data.user);
-    }, error => {
-      this._snackBar.open(error.error.errorMessage, 'close', {
-        duration: 5000,
-      });
-    });
+    this.store.dispatch(new UsersActions.AddUserToServer(userData, this.dialogRef))
+    // this.userService.addUser(userData).subscribe((data: any) => {
+    //   this.dialogRef.close(data.user);
+    // }, error => {
+    //   this._snackBar.open(error.error.errorMessage, 'close', {
+    //     duration: 5000,
+    //   });
+    // });
   }
 }

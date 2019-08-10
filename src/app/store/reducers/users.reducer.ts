@@ -21,12 +21,18 @@ export function usersReducer(
     state = initialState,
     action: UsersActions.UsersActions
 ) {
-    const updatedUsers = [...state.users];
+    let updatedUsers: User[] = [...state.users];
     switch( action.type ) {
+        case UsersActions.GET_USERS_FROM_SERVER:
+            return {
+                ...state,
+                isLoading: true
+            }
         case UsersActions.ADD_USERS_TO_STORE:
             return {
                 ...state,
-                users: {...action.payload}
+                users: [...action.payload],
+                isLoading: false
             }
         case UsersActions.ADD_USER_TO_STORE:
             updatedUsers.push(action.payload);
@@ -35,8 +41,8 @@ export function usersReducer(
                 users: updatedUsers
             }
         case UsersActions.DELETE_USER_FROM_STORE:
-            updatedUsers.find((user, index) => {
-                return user._id !== action.payload;
+            updatedUsers = updatedUsers.filter((user, index) => {
+            return user._id !== action.payload;
             });
             return {
                 ...state,

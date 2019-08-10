@@ -28,11 +28,11 @@ export class UserItemComponent implements OnInit {
       data: { id: this.user._id },
     });  
 
-    dialogRef.afterClosed().subscribe(result => {
-      if (result.successMessage !== undefined){        
-        this.DeleteUser.emit(this.index);
-      }
-    });
+    // dialogRef.afterClosed().subscribe(result => {
+    //   if (result.successMessage !== undefined){        
+    //     this.DeleteUser.emit(this.index);
+    //   }
+    // });
   }
 
   goToDetail() {
