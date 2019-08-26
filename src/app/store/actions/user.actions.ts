@@ -13,64 +13,72 @@ export const UPDATE_USER_IN_STORE = '[Users] Update User In Store';
 export const USERS_ERROR_CATCHED = '[Users] Error Catched';
 
 export class GetUsersFromServer implements Action {
-    readonly type = GET_USERS_FROM_SERVER;
+  readonly type = GET_USERS_FROM_SERVER;
 }
 
 export class AddUsersToStore implements Action {
-    readonly type = ADD_USERS_TO_STORE;
+  readonly type = ADD_USERS_TO_STORE;
 
-    constructor(public payload: User[]) {}
+  constructor(public payload: User[]) {
+  }
 }
 
 export class AddUserToServer implements Action {
-    readonly type = ADD_USER_TO_SERVER;
+  readonly type = ADD_USER_TO_SERVER;
 
-    constructor(public payload: User, public dialogRef? :any) {}
+  constructor(public payload: User, public dialogRef?: any) {
+  }
 }
 
 export class AddUserToStore implements Action {
-    readonly type = ADD_USER_TO_STORE;
+  readonly type = ADD_USER_TO_STORE;
 
-    constructor(public payload: User) {}
+  constructor(public payload: User) {
+  }
 }
 
 export class DeleteUserFromServer implements Action {
-    readonly type = DELETE_USER_FROM_SERVER;
+  readonly type = DELETE_USER_FROM_SERVER;
 
-    constructor(public payload: string, public dialogRef? :any) {}
+  constructor(public payload: string, public dialogRef?: any) {
+  }
 }
 
 export class DeleteUserFromStore implements Action {
-    readonly type = DELETE_USER_FROM_STORE;
+  readonly type = DELETE_USER_FROM_STORE;
 
-    constructor(public payload: string) {}
+  constructor(public payload: string) {
+  }
 }
 
 export class UpdateUserInServer implements Action {
-    readonly type = UPDATE_USER_IN_SERVER;
+  readonly type = UPDATE_USER_IN_SERVER;
 
-    constructor(public payload: User) {}
+  constructor(public payload: User, public dialogRef?: any) {
+  }
 }
 
 export class UpdateUserInStore implements Action {
-    readonly type = UPDATE_USER_IN_STORE;
+  readonly type = UPDATE_USER_IN_STORE;
 
-    constructor(public payload: User) {}
+  constructor(public payload: User) {
+  }
 }
 
 export class UsersErrorCatched implements Action {
-    readonly type = USERS_ERROR_CATCHED;
+  readonly type = USERS_ERROR_CATCHED;
 
-    constructor(public payload: string) {}
+  constructor(public payload: string) {
+  }
 }
 
-export type UsersActions = 
-    | AddUserToServer
-    | AddUserToStore
-    | GetUsersFromServer
-    | AddUsersToStore
-    | DeleteUserFromServer
-    | DeleteUserFromStore
-    | UpdateUserInServer
-    | UpdateUserInStore
-    | UsersErrorCatched;
+export type UsersActions =
+  | AddUserToServer
+  | AddUserToStore
+  | GetUsersFromServer
+  | AddUsersToStore
+  | DeleteUserFromServer
+  | DeleteUserFromStore
+  | UpdateUserInServer
+  | UpdateUserInStore
+  | UsersErrorCatched;

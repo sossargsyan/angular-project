@@ -46,7 +46,7 @@ export class UsersService {
         return this.http.post('http://localhost:3000/api/user/', user, { headers });
     }
 
-    updateUser(user) {
+    updateUser(user: User) {
       const headers = new HttpHeaders();
       return this.http.put('http://localhost:3000/api/update-user/' + user._id, user, { headers });
     }

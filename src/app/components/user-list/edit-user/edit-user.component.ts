@@ -5,6 +5,10 @@ import { MAT_DIALOG_DATA, MatDialogRef, MatSnackBar } from '@angular/material';
 import { User } from 'src/app/models/user.model';
 import { UsersService } from 'src/app/services/users.service';
 import { TranslateService } from '@ngx-translate/core';
+import { Store } from "@ngrx/store";
+
+import * as fromApp from '../../../store/reducers/app.reducer';
+import * as UsersActions from '../../../store/actions/user.actions';
 
 @Component({
   selector: 'app-edit-user',
@@ -22,7 +26,9 @@ export class EditUserComponent implements OnInit {
               private fb: FormBuilder,
               private userService: UsersService,
               private _snackBar: MatSnackBar,
-              translate: TranslateService) {
+              translate: TranslateService,
+              private store: Store<fromApp.AppState>
+  ) {
     translate.get('ADD-EDIT-USER').subscribe((res) => {
       this.PageText = res;
     });
@@ -39,17 +45,7 @@ export class EditUserComponent implements OnInit {
   }
 
   updateUser(userData: User) {
-    this.userService.updateUser(userData).subscribe(
-      (successCase: any) => {
-        if (successCase.successMessage !== undefined) {
-          this.dialogRef.close(successCase.user);
-        }
-      }, errorCase => {
-        this._snackBar.open(errorCase.error.errorMessage, 'close', {
-          duration: 5000,
-        });
-      }
-    );
+    this.store.dispatch(new UsersActions.UpdateUserInServer(userData, this.dialogRef));
 
   }
 
